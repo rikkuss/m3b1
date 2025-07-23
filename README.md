@@ -11,6 +11,7 @@ Ce projet est une API RESTful puissante construite avec **FastAPI** et **SQLAlch
 * **Validation des Données** : La validation robuste des requêtes et la sérialisation des réponses sont assurées par **Pydantic**.
 * **Journalisation Avancée** : Les requêtes, les erreurs et les événements importants sont journalisés via **Loguru** dans la console et dans des fichiers rotatifs.
 * **Documentation Automatique** : Obtenez une documentation interactive et visuelle de l'API prête à l'emploi grâce à Swagger UI (`/docs`) et ReDoc (`/redoc`).
+* **Migration de base** : Utilisation d'alembic pour la migration de la base
 
 ---
 
@@ -22,12 +23,13 @@ Ce projet est une API RESTful puissante construite avec **FastAPI** et **SQLAlch
 |-- crud.py              # Logique des opérations CRUD génériques
 |-- database.py          # Configuration de la base de données (moteur et session)
 |-- models.py            # Définition des modèles de table SQLAlchemy (ORM)
-|-- schemas.py           # Définition des schémas Pydantic pour la validation des données
+|-- schema.py            # Définition des schémas Pydantic pour la validation des données
 |-- populate_db.py       # Script pour remplir la base de données depuis un CSV
 |-- enumClasses.py       # Classes enum 
 |-- requirements.txt     # Dépendances Python du projet
 |-- dataset.csv          # Fichier de données CSV
 |-- logs/                # Répertoire pour les fichiers de logs
+|-- alembic/             # Répertoire pour les fichiers de migration
 |-- test.db              # Fichier de la base de données SQLite
 |-- README.md            # Ce fichier
 ```
@@ -94,33 +96,25 @@ Crée un nouvel enregistrement dans la table spécifiée.
 
 ```json
 {
-  "nom": "Durand",
-  "prenom": "Alice",
   "client_meta": {
-    "age": 63,
-    "taille": 165,
-    "poids": 56.9,
-    "sexe": "Femme",
-    "sport_licence": true,
-    "niveau_etude": "aucun",
-    "region": "Hauts-de-France",
+    "age": 19,
+    "poids": 62.5,
+    "niveau_etude": "bac",
     "smoker": true,
-    "nationalite_francaise": true,
+    "nb_enfants": 0,
+    "quotient_caf": 78.7,
     "situation_familiale": "veuf(ve)"
   },
   "client_situation": {
-    "revenu_estime_mois": 1820,
-    "historique_credits": null,
-    "risque_personnel": 0.43,
-    "score_credit": 404,
+    "revenu_estime_mois": 4958,
+    "risque_personnel": 0.19,
     "loyer_mensuel": null
   },
   "contrats": [
     {
-      "montant_pret": 15000
+      "montant_pret": 500
     }
-  ],
-  "date_creation_compte": "2025-07-22"
+  ]
 }
 ```
 

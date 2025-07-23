@@ -14,6 +14,8 @@ class ClientMeta(BaseModel):
     poids: float
     niveau_etude: str
     smoker: bool
+    nb_enfants: int
+    quotient_caf: float
     situation_familiale: Optional[SituationFamilialeEnum] = None
 
     class Config:

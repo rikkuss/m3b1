@@ -31,6 +31,8 @@ def populate_database():
                     poids=row['poids'],
                     niveau_etude=row['niveau_etude'],
                     smoker=(row['smoker'] == 'oui'),
+                    nb_enfants=row['nb_enfants'],
+                    quotient_caf=row['quotient_caf'],
                     situation_familiale=row['situation_familiale'],
                 ),
                 client_situation = ClientSituation(

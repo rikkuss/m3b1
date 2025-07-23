@@ -6,3 +6,4 @@ loguru
 pandas
 pytest
 httpx
+alembic
